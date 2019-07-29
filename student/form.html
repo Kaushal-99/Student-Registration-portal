@@ -1,0 +1,160 @@
+<div id="form" class="container main-content ">
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img src="https://via.placeholder.com/150x200" alt="">
+                        <br><br>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                            </div>
+                            <input disabled type="text" class="form-control" value="Mak" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Roll No.</span>
+                            </div>
+                            <input disabled type="text" class="form-control" value="17IT1020" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Branch</span>
+                            </div>
+                            <input disabled type="text" class="form-control" value="Information Technology"
+                                aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Year</span>
+                            </div>
+                            <input disabled type="text" class="form-control" value="TE july 2019" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">caste</span>
+                            </div>
+                            <input disabled type="text" class="form-control" value="Open" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Type of Admission</span>
+                            </div>
+                            <input disabled type="text" class="form-control" value="Open" aria-label="Default"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-12">
+            <table class="table">
+                <tr>
+                    <th>Sem</th>
+                    <th>Seat no</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Pointer</th>
+                    <th>No. of KT</th>
+                </tr>
+                <tr>
+                    <td>I</td>
+                    <td><input type="text" name="seat"></input></td>
+                    <td><input type="text" name="month"></input></td>
+                    <td><input type="text" name="year"></input></td>
+                    <td><input type="text" name="pointer"></input></td>
+                    <td><input type="text" name="no"></input></td>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td><input type="text" name="seat"></input></td>
+                    <td><input type="text" name="month"></input></td>
+                    <td><input type="text" name="year"></input></td>
+                    <td><input type="text" name="pointer"></input></td>
+                    <td><input type="text" name="no"></input></td>
+                </tr>
+                <tr>
+                    <td>III</td>
+                    <td><input type="text" name="seat"></input></td>
+                    <td><input type="text" name="month"></input></td>
+                    <td><input type="text" name="year"></input></td>
+                    <td><input type="text" name="pointer"></input></td>
+                    <td><input type="text" name="no"></input></td>
+                </tr>
+                <tr>
+                    <td>IV</td>
+                    <td><input type="text" name="seat"></input></td>
+                    <td><input type="text" name="month"></input></td>
+                    <td><input type="text" name="year"></input></td>
+                    <td><input type="text" name="pointer"></input></td>
+                    <td><input type="text" name="no"></input></td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td><input type="text" name="seat"></input></td>
+                    <td><input type="text" name="month"></input></td>
+                    <td><input type="text" name="year"></input></td>
+                    <td><input type="text" name="pointer"></input></td>
+                    <td><input type="text" name="no"></input></td>
+                </tr>
+                <tr>
+                    <td>VI</td>
+                    <td><input type="text" name="seat"></input></td>
+                    <td><input type="text" name="month"></input></td>
+                    <td><input type="text" name="year"></input></td>
+                    <td><input type="text" name="pointer"></input></td>
+                    <td><input type="text" name="no"></input></td>
+                </tr>
+
+            </table>
+            <label>Receipt type:</label>
+            <select>
+                <option value="Provisional">
+                    Provisional
+                </option>
+                <option value="Regular">
+                    Regular
+                </option>
+            </select>
+            <br>
+
+            <label>Applied for scholarship:</label>
+            <button onclick="show_scholarship()">Yes</button>
+            <button onclick="hide_scholarship()">No</button>
+            <form class="hide" id="scholarship">
+                <label>
+                    Mahadbt Scholarship Application ID
+                </label>
+                <input type="text" name="SID">
+                <br>
+                <label>
+                    Scholarship Application status
+                </label>
+                <select>
+                    <option value="Aproved">
+                        Approved
+                    </option>
+                    <option value="Not approved">
+                        Not approved
+                    </option>
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                </select>
+            </form>
+        </div>
+    </div>
+</div>

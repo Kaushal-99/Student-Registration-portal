@@ -61,6 +61,7 @@ label {
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
+    margin-top: 0px;
   }
   
   .sidenav a {
@@ -85,3 +86,19 @@ label {
       font-weight: 200;
   }
   
+.main-content{
+    margin-left: 170px;
+    margin-top: 30px;
+}
+
+#form{
+    padding-top: 100px;
+}
+
+.hide{
+    display: none;
+}
+
+.input-group input[type="text"]:disabled{
+    background-color:white;
+}

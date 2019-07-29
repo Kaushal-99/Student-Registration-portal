@@ -14,72 +14,75 @@
 
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
         <h4 class="welcome-text">Welcome Student!</h4>
         <h4 class="rait-text text-center">Student Registration Portal</h4>
     </nav>
-    <div class="sidenav fixed-left">
+    <div class="sidenav">
         <div class="">
-            <button class="btn btn-danger ">
-                <a href="">Status</a>
+            <button onclick="view_status()" class="btn btn-danger ">
+                <a>Status</a>
             </button>
-            <button class="btn btn-primary">
-                <a href=""> Fill Form</a>
+            <button onclick="view_form()" class="btn btn-primary">
+                <a>Fill Form</a>
             </button>
             <button class="btn btn-warning">
-                <a href="">Upload Documents</a>
+                <a>Upload Documents</a>
             </button>
             <button class="btn btn-success">
-                <a href="">Review & Submit</a>
+                <a>Review & Submit</a>
             </button>
         </div>
     </div>
 
+    <div class="content">
+        <div class="container main-content">
+            <br><br>
+            <h3>Application Status : Pending submission from student</h3>
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100">
+                    Fill form
+                </div>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100">
+                    upload documents (pending)
+                </div>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100">
+                    Application submitted (pending)
+                </div>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100">
+                    Approval (pending)
+                </div>
+            </div>
+            <br>
+            <br>
+            <h4>Instructions to students</h4>
 
-    <div class="container main-content">
-        <br><br>
-        <h3>Application Status : Pending submission from student</h3>
-        <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                aria-valuemax="100">
-                Fill form
-            </div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
-                upload documents (pending)
-            </div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
-                Application submitted (pending)
-            </div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
-                Approval (pending)
-            </div>
+            <ul>
+                <li>Phasellus iaculis t portt porttitor sem laoreettitor sem laoreetulis neque</li>
+                <li>Purus sodat porttitor sem laoreetus iaculis neque</li>
+                <li>Vestibulum laor t porttitor sem laoreeteet porttitor sem laoreet porttitor sem</li>
+                <li>Ac tristique lib Phasellus ero volutpat at</li>
+                <li>Purus sodat porttitor sem laoreetus iaculis neque</li>
+                <li>Vestibulum laor t porttitor sem laoreeteet porttitor sem laoreet porttitor sem</li>
+                <li>Ac tristique lib Phasellus ero volutpat at</li>
+            </ul>
+
         </div>
-        <br>
-        <br>
-        <h4>Instructions to students</h4>
-
-        <ul>
-                <li>Phasellus iaculis t portt porttitor sem  laoreettitor sem  laoreetulis neque</li>
-                <li>Purus sodat porttitor sem  laoreetus iaculis neque</li>
-                <li>Vestibulum laor t porttitor sem  laoreeteet porttitor sem  laoreet porttitor sem</li>
-                <li>Ac tristique lib  Phasellus ero volutpat at</li>
-                <li>Purus sodat porttitor sem  laoreetus iaculis neque</li>
-                <li>Vestibulum laor t porttitor sem  laoreeteet porttitor sem  laoreet porttitor sem</li>
-                <li>Ac tristique lib  Phasellus ero volutpat at</li>
-        </ul>
 
     </div>
-
-
-
+    
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
         integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
     </script>
-
+    <script src="../js/index.js"></script>
 </body>
 
 </html>
