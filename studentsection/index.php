@@ -1,40 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include '../templates/header.html'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
 
-    <title>Document</title>
-</head>
-
-<body>
-
-    <nav class="navbar navbar-dark bg-dark">
-        <h4 class="welcome-text">Welcome HOD/CC!</h4>
-        <h4 class="rait-text text-center">HOD/CC</h4>
-    </nav>
-    <div class="sidenav fixed-left">
-        <div class="">
-            <button class="btn btn-danger ">
-                <a href="">Pending for Approval</a>
-            </button>
-            <button class="btn btn-primary">
-                <a href=""> Approved</a>
-            </button>
-            <button class="btn" style="background-color: grey">
-                <a href="">All Applications</a>
-            </button>
-        </div>
+<!-- Sidebar  -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>Welcome, Student Section!</h3>
+        <strong>SS</strong>
     </div>
 
+    <ul class="list-unstyled components ">
+        <li>
+            <a href="#">
+                Pending Approval
+            </a>
+        </li>
+        <li>
+            <a href="#">
+               Approved
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                View All
+            </a>
+        </li>
+    </ul>
+
+
+</nav>
+
+<!-- Page Content  -->
+<div id="content">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="navbar-toggler-icon"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <p>Student Registration Portal</p>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <div class="container main-content">
-        <br><br>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -137,14 +151,6 @@
         </table>
 
     </div>
+</div>
 
-
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
-    </script>
-    </script>
-
-</body>
-
-</html>
+<?php include '../templates/footer.html'; ?>
