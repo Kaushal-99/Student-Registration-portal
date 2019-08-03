@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2019 at 03:29 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.1.30
+-- Generation Time: Aug 03, 2019 at 03:53 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -117,10 +117,20 @@ CREATE TABLE `hod` (
 --
 
 CREATE TABLE `login` (
-  `username` text NOT NULL,
-  `password` text NOT NULL,
-  `type` text NOT NULL
+  `username` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `type` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`, `type`) VALUES
+('17IT1020', '123', 'STUDENT'),
+('cc', '123', 'CC'),
+('hodit', '123', 'HOD'),
+('ss', '123', 'SS');
 
 -- --------------------------------------------------------
 
@@ -204,6 +214,12 @@ ALTER TABLE `form`
 --
 ALTER TABLE `hod`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `scholarship`
