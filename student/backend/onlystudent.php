@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION['logintype'])){
-    header('Location: ../index.html');
+    header('Location: ../');
 }
 elseif ($_SESSION['logintype']!='STUDENT') {
-    header('Location: ../index.html');
+    header('Location: ../');
 }
 ?>

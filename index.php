@@ -1,3 +1,19 @@
+<?php 
+session_start();
+if(isset($_SESSION['logintype'])){
+    print($_SESSION['logintype']);
+    if($_SESSION['logintype'] == 'STUDENT'){
+        header('Location: student/');
+    }
+    elseif ($_SESSION['logintype'] == 'SS') {
+        header('Location: studentsection/');
+    }
+    elseif ($_SESSION['logintype'] == 'HOD' || $_SESSION['logintype'] == 'CC') {
+        header('Location: HOD_CC/');
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,40 +1,7 @@
 <?php include '../templates/header.php'; ?>
 <?php include 'backend/onlystudent.php'; ?>
+<?php include 'sidebar.php'; ?>
 
-
-
-<!-- Sidebar  -->
-<nav id="sidebar">
-    <div class="sidebar-header">
-        <h3>Welcome, Student!</h3>
-        <strong>SS</strong>
-    </div>
-
-    <ul class="list-unstyled components ">
-        <li>
-            <a onclick="view_status()" href="#">
-                Status
-            </a>
-        </li>
-        <li>
-            <a onclick="view_form()" href="#">
-                Fill form
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                Upload Documents
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                Review & Submit
-            </a>
-        </li>
-    </ul>
-
-
-</nav>
 
 <!-- Page Content  -->
 <div id="content">
