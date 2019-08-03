@@ -9,12 +9,15 @@
     if($row){
         session_start();
         $_SESSION['username'] = $row['username'];
-        $_SESSION['type'] = $row['type'];
+        $_SESSION['logintype'] = $row['type'];
         if($row['type']=='STUDENT'){
             echo 'STUDENT';
         }
         elseif($row['type']=='HOD'){
             echo 'HOD';
+        }
+        elseif($row['type']=='CC'){
+            echo 'CC';
         }
         elseif ($row['type']=='SS') {
             echo 'SS';

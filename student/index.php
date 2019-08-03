@@ -1,4 +1,6 @@
-<?php include '../templates/header.html'; ?>
+<?php include '../templates/header.php'; ?>
+<?php include 'backend/onlystudent.php'; ?>
+
 
 
 <!-- Sidebar  -->

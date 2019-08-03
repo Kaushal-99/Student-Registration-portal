@@ -1,4 +1,5 @@
-<?php include '../templates/header.html'; ?>
+<?php include '../templates/header.php'; ?>
+<?php include 'backend/onlyss.php'; ?>
 
 
 <!-- Sidebar  -->
@@ -40,9 +41,21 @@
                 <span>Toggle Sidebar</span>
             </button>
 
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="navbar-toggler-icon"></i>
+            </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav ml-auto">
-                    <p>Student Registration Portal</p>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Student Registration Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../backend/logout.php"><button class="btn-sm btn btn-outline-primary">Logout</button></a>
+                    </li>
+
                 </ul>
             </div>
         </div>
