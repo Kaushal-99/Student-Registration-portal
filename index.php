@@ -55,18 +55,19 @@ if(isset($_SESSION['logintype'])){
             <h1 class="text-center">Login</h1>
         </div>
         <div class="container">
-
+             <form> 
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="username">
+                <input type="text" class="form-control" id="username" placeholder="username" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="password">
+                <input type="password" class="form-control" id="password" placeholder="password" required>
             </div>
 
 
             <button style="margin-left:40%;" onclick="login()" class="btn btn-success">login</button>
+            </form>  
         </div>
 
     </div>
