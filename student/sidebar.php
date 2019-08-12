@@ -17,7 +17,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="upload.php">
                 Upload Documents
             </a>
         </li>

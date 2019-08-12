@@ -1,7 +1,32 @@
 <?php include '../templates/header.php'; ?>
 <?php include 'backend/onlystudent.php'; ?>
 <?php include 'sidebar.php'; ?>
+<style type="text/css">
+    #submitbutton {
+        margin-top: 10px;
+        margin-left: 35%;
+    }
 
+    .form-control {
+        height: 30px;
+    }
+
+    td {
+        text-align: center;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    #table {
+        margin-left: 30%;
+    }
+</style>
 
 <!-- Page Content  -->
 <div id="content">
@@ -61,7 +86,123 @@
             </div>
         </div>
 
+
+        <br>
+        <div class="container">
+            <h5>Results info :</h5>
+            <div class="row">
+
+                <div>
+                    <table class="table-striped table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sem</th>
+                                <th scope="col">Seat no</th>
+                                <th scope="col">Month/Year</th>
+                                <th scope="col">Pointer</th>
+                                <th scope="col">No. of KT</th>
+                            </tr>
+                        </thead>
+
+                        <body>
+                            <tr>
+                                <td>I</td>
+                                <td><input type="text" name="seat" size="3" class="form-control"></td>
+                                <td>NOV-18</td>
+                                <td><input type="text" name="pointer" size="4" class="form-control"></td>
+                                <td><input type="text" name="no" size="4" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>II</td>
+                                <td><input type="text" name="seat" size="4" class="form-control"></td>
+                                <td>MAY-19</td>
+                                <td><input type="text" name="pointer" size="4" class="form-control"></td>
+                                <td><input type="text" name="no" size="4" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>III</td>
+                                <td><input type="text" name="seat" size="4" class="form-control"></td>
+                                <td>NOV-19</td>
+                                <td><input type="text" name="pointer" size="4" class="form-control"></td>
+                                <td><input type="text" name="no" size="4" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>IV</td>
+                                <td><input type="text" name="seat" size="4" class="form-control"></td>
+                                <td>MAY-20</td>
+                                <td><input type="text" name="pointer" size="4" class="form-control"></td>
+                                <td><input type="text" name="no" size="4" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>V</td>
+                                <td><input type="text" name="seat" size="4" class="form-control"></td>
+                                <td>NOV-20</td>
+                                <td><input type="text" name="pointer" size="4" class="form-control"></td>
+                                <td><input type="text" name="no" size="4" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>VI</td>
+                                <td><input type="text" name="seat" size="4" class="form-control"></td>
+                                <td>MAY-21</td>
+                                <td><input type="text" name="pointer" size="4" class="form-control"></td>
+                                <td><input type="text" name="no" size="4" class="form-control"></td>
+                            </tr>
+                        </body>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <label style="margin-left: 200px;">Receipt type:</label>
+        <select class="dropdown">
+            <option value="Provisional">
+                Provisional
+            </option>
+            <option value="Regular">
+                Regular
+            </option>
+        </select>
+        <br>
+
+        <label style="margin-left: 111px;">Applied for scholarship:</label>
+        <button class="btn btn-danger" style="width:50px ;text-align:center;display:inline;" onclick="Yes()"
+            data-toggle="collapse" data-target="#scholarship">Yes</button>
+
+            <input type="text" hidden id="applysch" value="No">
+
+        <button class="btn btn-success " style="width:50px;display:inline;text-align: center;" onclick="No()"
+            data-toggle="collapse" data-target="#scholarship">No</button>
+        <div id="scholarship" style="display: none;" class="collapse ">
+            <form class="form-group">
+                <br>
+                <label style="display:inline">
+                    Mahadbt Scholarship Application ID:
+                </label>
+                <input type="text" name="SID" class="form-control" style="display:inline; max-width:20%;">
+                <br><br>
+                <label style="margin-left:52px;" style="display:inline">
+                    Scholarship Application status:
+                </label>
+                <select class="dropdown" style="display:inline">
+                    <option value="Aproved">
+                        Approved
+                    </option>
+                    <option value="Not approved">
+                        Not approved
+                    </option>
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                </select>
+            </form>
+
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-info btn-lg" id="submitbutton">submit</button>
     </div>
 </div>
-
 <?php include '../templates/footer.html'; ?>
