@@ -5,53 +5,7 @@
 <script src="assets/jquery.js"></script>
 <script src="assets/bootstrap.min.js"></script>
 
-<script src="js/index.js"></script>
-<script type="text/javascript">
-    function display() {
-        var x = document.getElementById("scholarship");
-        if (x.style.display == "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display == "none"
-        }
-    }
-
-    function hide() {
-        var x = document.getElementById("scholarship");
-        if (x.style.display == "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display == "none"
-        }
-
-    }
-</script>
-<style type="text/css">
-    #submitbutton {
-        margin-top: 10px;
-        margin-left: 35%;
-    }
-
-    /* .form-control {
-        height: 30px;
-    } */
-
-    td {
-        text-align: center;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-    }
-
-    th {
-        text-align: center;
-    }
-
-    #table {
-        margin-left: 30%;
-    }
-</style>
+<script src="js/student.js"></script>
 
 <!-- Page Content  -->
 <div id="content">
@@ -117,101 +71,101 @@
             </div>
         </div>
         <br>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div>
-                <table class=" table-bordered table-hover table-responsive">
+
+        <div class="container">
+
+
+            <table class="table table-hover table-striped">
+                <thead>
                     <tr>
-                        <th>Sem</th>
-                        <th>Seat no</th>
-                        <th>Month/Year</th>
-                        <th>Pointer</th>
-                        <th>No. of KT</th>
+                        <th scope="col">Sem</th>
+                        <th scope="col">Seat no</th>
+                        <th scope="col">Month/Year</th>
+                        <th scope="col">Pointer</th>
+                        <th scope="col">No. of KT</th>
                     </tr>
+                </thead>
+                <tbody>
                     <?php for ($i=1; $i<=$student['sem']; $i=$i+1) { ?>
-
                     <tr>
-                        <td><?=$i?></td>
-                        <td><input type="text" name="seat" size="3" class="form-control" id="sem-<?=$i?>-seat"></td>
-                        <td><input type="month" onclick="disp()" size="3" class="form-control" id="sem-<?=$i?>-mon">
-                        </td>
-
-                        <td><input type="number" min="0" max="10" name="pointer" size="4" class="form-control"
-                                id="sem-<?=$i?>-pointer">
-                        </td>
+                        <th scope="row"><?=$i?></th>
+                        <td><input type="text" class="form-control" id="sem-<?=$i?>-seat"></td>
+                        <td><input type="month" class="form-control" id="sem-<?=$i?>-mon"></td>
+                        <td><input type="number" min="0" max="10" class="form-control" id="sem-<?=$i?>-pointer"></td>
                         <td><input type="number" min="0" max="6" name="no" size="4" class="form-control"
                                 id="sem-<?=$i?>-kt"></td>
                     </tr>
                     <?php }?>
 
-                </table>
-            </div>
+                </tbody>
+            </table>
+
         </div>
-    </div>
-    <br>
+        <br>
 
 
 
-    <div class="container">
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Receipt type:</label>
-            <div class="col-sm-10">
-                <select class="form-control" id="recpt">
-                    <option value="Provisional">
-                        Provisional
-                    </option>
-                    <option value="Regular">
-                        Regular
-                    </option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-4 col-form-label">Applied for scholarship:</label>
-            <div class="col-sm-10">
-                <select onchange="togglescholarship()" class="form-control" id="apply">
-                    <option value="Yes">
-                        Yes
-                    </option>
-                    <option selected value="No">
-                        No
-                    </option>
-                </select>
-            </div>
-        </div>
-        <div class="scholarship hide">
+        <div class="container">
             <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-12 col-form-label">Mahadbt Scholarship Application Id:</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Receipt type:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="appid">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-12 col-form-label">
-                    Scholarship Application status:
-                </label>
-                <div class="col-sm-5">
-                    <select class="form-control" id="appstatus">
-                        <option value="Aproved">
-                            Approved
+                    <select class="form-control" id="recpt">
+                        <option value="Provisional">
+                            Provisional
                         </option>
-                        <option value="Not approved">
-                            Not approved
+                        <option value="Regular">
+                            Regular
                         </option>
-                        <option value="Rejected">
-                            Rejected
-                        </option>
-
                     </select>
                 </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-4 col-form-label">Applied for scholarship:</label>
+                <div class="col-sm-10">
+                    <select onchange="togglescholarship()" class="form-control" id="apply">
+                        <option value="Yes">
+                            Yes
+                        </option>
+                        <option selected value="No">
+                            No
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="scholarship hide">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Mahadbt Scholarship Application
+                        Id:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="appid">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-12 col-form-label">
+                        Scholarship Application status:
+                    </label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="appstatus">
+                            <option value="Aproved">
+                                Approved
+                            </option>
+                            <option value="Not approved">
+                                Not approved
+                            </option>
+                            <option value="Rejected">
+                                Rejected
+                            </option>
 
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" onclick="saveform(<?=$student['sem']?>)" class="btn btn-info btn-lg"
+                id="submitbutton">submit</button>
+
+        </div>
     </div>
 
-    <button type="submit" onclick="saveform(<?=$student['sem']?>)" class="btn btn-info btn-lg"
-        id="submitbutton">submit</button>
 
 </div>
 </div>
