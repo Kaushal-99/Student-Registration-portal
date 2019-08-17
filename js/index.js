@@ -43,6 +43,29 @@ function disp() {
 }
 
 function saveform(sem) {
-    console.log(sem);
-    
+    //console.log(sem);
+    recpt = $("#recpt").val();
+    apply = $("#apply").val();
+    appid = $("#appid").val();
+    appstatus = $("#appstatus").val();
+    //console.log(apply);
+    //console.log(appid);
+    //console.log(appstatus);
+    $.ajax({
+        type: "POST",
+        url: "backend/saveform_ajax.php",
+        data: {
+            //data goes here
+            recpt,
+            apply,
+            appid,
+            appstatus
+        },
+        success: function (data) {
+            //data is returned here
+            if (data == "SUCCESS") {
+                alert("Done");
+            } 
+        }
+    });
 }
