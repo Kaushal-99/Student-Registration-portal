@@ -29,26 +29,13 @@ function login() {
     }
 }
 
-function Yes() {
-    
-    var x = document.getElementById("scholarship");
-    if (x.style.display == "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display == "none"
+function togglescholarship() {
+    if($('#apply').val()=="Yes"){
+        $('.scholarship').show();
     }
-    $('#applysch').val("Yes");
-}
-
-function No() {
-    
-    var x = document.getElementById("scholarship");
-    if (x.style.display == "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display == "none";
+    else{
+        $('.scholarship').hide();
     }
-    $('#applysch').val("No");
 }
 
 function disp() {

@@ -25,16 +25,16 @@
         }
 
     }
-</script>>
+</script>
 <style type="text/css">
     #submitbutton {
         margin-top: 10px;
         margin-left: 35%;
     }
 
-    .form-control {
+    /* .form-control {
         height: 30px;
-    }
+    } */
 
     td {
         text-align: center;
@@ -144,51 +144,6 @@
                                 id="sem-<?=$i?>-kt"></td>
                     </tr>
                     <?php }?>
-                    <!-- <tr>
-                        <td>II</td>
-                        <td><input type="text" name="seat" size="4" class="form-control" id="sem2-seat"></input></td>
-                        <td><input type="month" size="3" class="form-control" id=""></td>
-
-                        <td><input type="text" name="pointer" size="4" class="form-control" id="sem2-pointer"></input>
-                        </td>
-                        <td><input type="text" name="no" size="4" class="form-control" id="sem2-kt"></input></td>
-                    </tr>
-                    <tr>
-                        <td>III</td>
-                        <td><input type="text" name="seat" size="4" class="form-control" id="sem3-seat"></input></td>
-                        <td><input type="month" size="3" class="form-control" id=""></td>
-
-                        <td><input type="text" name="pointer" size="4" class="form-control" id="sem3-pointer"></input>
-                        </td>
-                        <td><input type="text" name="no" size="4" class="form-control" id="sem3-kt"></input></td>
-                    </tr>
-                    <tr>
-                        <td>IV</td>
-                        <td><input type="text" name="seat" size="4" class="form-control" id="sem4-seat"></input></td>
-                        <td><input type="month" size="3" class="form-control" id=""></td>
-
-                        <td><input type="text" name="pointer" size="4" class="form-control" id="sem4-pointer"></input>
-                        </td>
-                        <td><input type="text" name="no" size="4" class="form-control" id="sem4-kt"></input></td>
-                    </tr>
-                    <tr>
-                        <td>V</td>
-                        <td><input type="text" name="seat" size="4" class="form-control" id="sem5-seat"></input></td>
-                        <td><input type="month" size="3" class="form-control" id=""></td>
-
-                        <td><input type="text" name="pointer" size="4" class="form-control" id="sem5-pointer"></input>
-                        </td>
-                        <td><input type="text" name="no" size="4" class="form-control" id="sem5-kt"></input></td>
-                    </tr>
-                    <tr>
-                        <td>VI</td>
-                        <td><input type="text" name="seat" size="4" class="form-control" id="sem6-seat"></input></td>
-                        <td><input type="month" size="3" class="form-control" id=""></td>
-
-                        <td><input type="text" name="pointer" size="4" class="form-control" id="sem6-pointer"></input>
-                        </td>
-                        <td><input type="text" name="no" size="4" class="form-control" id="sem6-kt"></input></td>
-                    </tr> -->
 
                 </table>
             </div>
@@ -196,57 +151,69 @@
     </div>
     <br>
 
-    <label style="margin-left: 200px;">Receipt type:</label>
-    <select class="dropdown" id="recpt">
-        <option value="Provisional">
-            Provisional
-        </option>
-        <option value="Regular">
-            Regular
-        </option>
-    </select>
-    <br>
-
-    <label style="margin-left: 111px;">Applied for scholarship:</label>
-    <button class="btn btn-danger" style="width:50px ;text-align:center;display:inline;" onclick="Yes()"
-        data-toggle="collapse" data-target="#scholarship">Yes</button>
-    <input type="text" id="applysch" value="No" class="hide">
-    <button class="btn btn-success " style="width:50px;display:inline;text-align: center;" onclick="No()"
-        data-toggle="collapse" data-target="#scholarship">No</button>
-    <div id="scholarship" style="display: none;" class="collapse">
-        <form>
-            <br>
-            <label style="display:inline">
-                Mahadbt Scholarship Application ID:
-            </label>
-            <input type="text" id="Sid" style="display:inline;">
-            <br><br>
-            <label style="margin-left:52px;" style="display:inline">
-                Scholarship Application status:
-            </label>
-            <select class="dropdown" id="appstatus" style="display:inline">
-                <option value="Aproved">
-                    Approved
-                </option>
-                <option value="Not approved">
-                    Not approved
-                </option>
-                <option value="Rejected">
-                    Rejected
-                </option>
-
-            </select>
 
 
+    <div class="container">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Receipt type:</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="recpt">
+                    <option value="Provisional">
+                        Provisional
+                    </option>
+                    <option value="Regular">
+                        Regular
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-4 col-form-label">Applied for scholarship:</label>
+            <div class="col-sm-10">
+                <select onchange="togglescholarship()" class="form-control" id="apply">
+                    <option value="Yes">
+                        Yes
+                    </option>
+                    <option selected value="No">
+                        No
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="scholarship hide">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-form-label">Mahadbt Scholarship Application Id:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="appid">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-form-label">
+                    Scholarship Application status:
+                </label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="appstatus">
+                        <option value="Aproved">
+                            Approved
+                        </option>
+                        <option value="Not approved">
+                            Not approved
+                        </option>
+                        <option value="Rejected">
+                            Rejected
+                        </option>
 
-
-
-        </form>
+                    </select>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    <br>
-    <button type="submit" onclick="saveform(<?=$student['sem']?>)" class="btn btn-info btn-lg" id="submitbutton">submit</button>
+    <button type="submit" onclick="saveform(<?=$student['sem']?>)" class="btn btn-info btn-lg"
+        id="submitbutton">submit</button>
+
+</div>
 </div>
 
 
