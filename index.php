@@ -66,7 +66,7 @@ if(isset($_SESSION['logintype'])){
             </div>
 
 
-            <button style="margin-left:40%;" onclick="login()" class="btn btn-success">login</button>
+            <button style="margin-left:40%;" type="submit" onclick="login()" class="btn btn-success">login</button>
             </form>  
         </div>
 

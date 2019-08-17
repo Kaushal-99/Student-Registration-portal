@@ -50,3 +50,7 @@ function No() {
     }
     $('#applysch').val("No");
 }
+
+function disp() {
+    console.log($("#mon").val());
+}
