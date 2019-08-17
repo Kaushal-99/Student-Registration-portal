@@ -54,3 +54,8 @@ function No() {
 function disp() {
     console.log($("#mon").val());
 }
+
+function saveform(sem) {
+    console.log(sem);
+    
+}
