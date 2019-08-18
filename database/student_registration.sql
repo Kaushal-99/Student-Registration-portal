@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2019 at 03:53 PM
+-- Generation Time: Aug 18, 2019 at 12:40 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -30,8 +30,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admission_type` (
   `roll` varchar(40) NOT NULL,
-  `receipt_type` text NOT NULL
+  `receipt_type` varchar(30) NOT NULL,
+  `applysch` varchar(3) NOT NULL DEFAULT 'No',
+  `appid` varchar(30) NOT NULL,
+  `appstatus` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admission_type`
+--
+
+INSERT INTO `admission_type` (`roll`, `receipt_type`, `applysch`, `appid`, `appstatus`) VALUES
+('17IT1020', 'Provisional', 'No', '', 'Aproved'),
+('sdfsd', 'sdsds', 'No', 'sdsds', 'sdsd');
 
 -- --------------------------------------------------------
 
@@ -54,10 +65,9 @@ CREATE TABLE `approval` (
 --
 
 CREATE TABLE `cc` (
-  `id` varchar(40) NOT NULL,
-  `name` text NOT NULL,
-  `department` text NOT NULL,
-  `division` text NOT NULL
+  `name` varchar(30) NOT NULL,
+  `department` varchar(30) NOT NULL,
+  `division` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -67,7 +77,7 @@ CREATE TABLE `cc` (
 --
 
 CREATE TABLE `documents` (
-  `id` text NOT NULL,
+  `id` int(11) NOT NULL,
   `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -90,13 +100,24 @@ CREATE TABLE `documents_submitted` (
 --
 
 CREATE TABLE `form` (
-  `roll` varchar(40) NOT NULL,
-  `seat` text NOT NULL,
-  `month` text NOT NULL,
-  `year` text NOT NULL,
-  `pointer` text NOT NULL,
-  `kt` text NOT NULL
+  `id` int(11) NOT NULL,
+  `roll` varchar(10) NOT NULL,
+  `seat_no` varchar(30) NOT NULL,
+  `month_year` varchar(30) NOT NULL,
+  `pointer` decimal(10,0) NOT NULL,
+  `kt` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `form`
+--
+
+INSERT INTO `form` (`id`, `roll`, `seat_no`, `month_year`, `pointer`, `kt`) VALUES
+(16, '17IT1020', '', '', '0', 0),
+(17, '17IT1020', '', '', '0', 0),
+(18, '17IT1020', '', '', '0', 0),
+(19, '17IT1020', '', '', '0', 0),
+(20, '17IT1020', '', '', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -105,9 +126,8 @@ CREATE TABLE `form` (
 --
 
 CREATE TABLE `hod` (
-  `id` varchar(40) NOT NULL,
-  `name` text NOT NULL,
-  `department` text NOT NULL
+  `username` varchar(30) NOT NULL,
+  `department` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -129,20 +149,8 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`username`, `password`, `type`) VALUES
 ('17IT1020', '123', 'STUDENT'),
 ('cc', '123', 'CC'),
-('hodit', '123', 'HOD'),
+('hod', '123', 'HOD'),
 ('ss', '123', 'SS');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `scholarship`
---
-
-CREATE TABLE `scholarship` (
-  `roll` varchar(40) NOT NULL,
-  `id` text NOT NULL,
-  `status` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -152,17 +160,24 @@ CREATE TABLE `scholarship` (
 
 CREATE TABLE `student` (
   `roll` varchar(40) NOT NULL,
-  `name` text NOT NULL,
-  `sem` text NOT NULL,
-  `year` text NOT NULL,
-  `email` text NOT NULL,
-  `division` text NOT NULL,
-  `batch` text NOT NULL,
-  `department` text NOT NULL,
-  `caste` text NOT NULL,
-  `admission_type` text NOT NULL,
-  `photo` text NOT NULL
+  `name` varchar(30) NOT NULL,
+  `sem` int(10) NOT NULL,
+  `year` varchar(2) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `division` varchar(1) NOT NULL,
+  `batch` varchar(2) NOT NULL,
+  `department` varchar(30) NOT NULL,
+  `caste` varchar(30) NOT NULL,
+  `admission_type` varchar(30) NOT NULL,
+  `photo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`roll`, `name`, `sem`, `year`, `email`, `division`, `batch`, `department`, `caste`, `admission_type`, `photo`) VALUES
+('17IT1020', 'Makarand Madhavi', 5, 'TE', 'makarand@gmail.com', 'A', 'A2', 'Information Technology', 'OBC', 'Regular', 'makarand.png');
 
 -- --------------------------------------------------------
 
@@ -195,6 +210,12 @@ ALTER TABLE `approval`
 -- Indexes for table `cc`
 --
 ALTER TABLE `cc`
+  ADD PRIMARY KEY (`name`);
+
+--
+-- Indexes for table `documents`
+--
+ALTER TABLE `documents`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -207,12 +228,6 @@ ALTER TABLE `documents_submitted`
 -- Indexes for table `form`
 --
 ALTER TABLE `form`
-  ADD PRIMARY KEY (`roll`);
-
---
--- Indexes for table `hod`
---
-ALTER TABLE `hod`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -220,12 +235,6 @@ ALTER TABLE `hod`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`username`);
-
---
--- Indexes for table `scholarship`
---
-ALTER TABLE `scholarship`
-  ADD PRIMARY KEY (`roll`);
 
 --
 -- Indexes for table `student`
@@ -238,6 +247,22 @@ ALTER TABLE `student`
 --
 ALTER TABLE `student_section`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `documents`
+--
+ALTER TABLE `documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `form`
+--
+ALTER TABLE `form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

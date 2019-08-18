@@ -60,7 +60,6 @@ function insertresult(seat,month,pointer,kt) {
             //console.log(data);
             //data is returned here
             if (data == "SUCCESS") {
-                alert("Done");
             } 
         }
     });
