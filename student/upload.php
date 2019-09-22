@@ -1,6 +1,13 @@
 <?php include '../templates/header.php'; ?>
 <?php include 'backend/onlystudent.php'; ?>
-<?php include 'sidebar.php'; ?>
+<?php include 'sidebar.php'; 
+ include 'backend/getdocuments.php';
+
+//error_reporting(0);
+?>
+<script src="../assets/jquery.js"></script>
+<script src="../assets/bootstrap.min.js"></script>
+<script src="js/upload.js"></script>
 <style type="text/css">
 	td{
     text-align: center;
@@ -8,7 +15,8 @@
     padding-left:10px;
     padding-right: 10px;
     padding-top: 10px;
-}
+    }
+
 </style>
 <div id="content">
 
@@ -52,269 +60,115 @@
             <li>Ac tristique lib Phasellus ero volutpat at</li>
         </ul>
         <br>
-    
-        <table class=" table table-hover table-responsive" >
-        <tr>
-        <th>Document no</th>
-        <th> Select Document</th>
-        <th>Choose file</th>
-        <th>Upload file</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><select class="dropdown" style="display:inline">
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 1
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 2
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 3
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 4
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 5
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 6
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 7
-        </option>
-        <option value="Hall Ticket">
-            Hall Ticket
-        </option>
-        <option value="Caste Validity Certificate">
-            Caste Validity Certificate
-        </option>
-        <option value="DTE Allotment Letter">
-            DTE Allotment Letter
-        </option>
         
-    </select>
-</td>
-            <td><input type="file" name="1"></td>
+            
+<form method="post" enctype="multipart/form-data" action="backend/uploadfile.php">
+    <div class="table-responsive table-hover table-striped">
+        <table class="table" width="300">
+            <thead align="center">
+                <tr>
+                    <th>Document no</th>
+                    <th> Select Document</th>
+                    <th>Choose file</th>
+                    <th>Upload file</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <select class="dropdown" style="display:inline"  name="doc1" id="doc1">
+                            <option value="Marksheet-Sem 1" id="Marksheet-Sem 1" >
+                            Marksheet-Sem 1
+                            </option>
+                            <option value="Marksheet-Sem 2">
+                            Marksheet-Sem 2
+                            </option>
+                            <option value="Marksheet-Sem 3">
+                            Marksheet-Sem 3
+                            </option>
+                            <option value="Marksheet-Sem 4">
+                            Marksheet-Sem 4
+                            </option>
+                            <option value="Marksheet-Sem 5">
+                            Marksheet-Sem 5
+                            </option>
+                            <option value="Marksheet-Sem 6">
+                            Marksheet-Sem 6
+                            </option>
+                            <option value="Marksheet-Sem 7">
+                            Marksheet-Sem 7
+                            </option>
+                            <option value="Hall Ticket">
+                            Hall Ticket
+                            </option>
+                            <option value="Caste Validity Certificate">
+                            Caste Validity Certificate
+                            </option>
+                            <option value="DTE Allotment Letter">
+                            DTE Allotment Letter
+                            </option>
+        
+                        </select>
+            
+                    </td> 
+                    <td><input type="file" name="file1" ></td>
            
             
-            <td><input type="submit" name="1" size="4" class="btn btn-success"></input></td>
-        </tr>
-        
-        <tr>
-            <td>2</td>
-            <td><select class="dropdown" style="display:inline">
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 1
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 2
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 3
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 4
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 5
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 6
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 7
-        </option>
-        <option value="Hall Ticket">
-            Hall Ticket
-        </option>
-        <option value="Caste Validity Certificate">
-            Caste Validity Certificate
-        </option>
-        <option value="DTE Allotment Letter">
-            DTE Allotment Letter
-        </option>
-        
-    </select>
-</td>
-            <td><input type="file" name="2"></td>
            
-            
-            <td><input type="submit" name="2" size="4" class="btn btn-success"></input></td>
-        </tr>
+                    <td><input type="submit" name="1" size="4" class="btn btn-success" ></input></td>
+                    
+                </tr>
 
-        <tr>
-            <td>3</td>
-            <td><select class="dropdown" style="display:inline">
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 1
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 2
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 3
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 4
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 5
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 6
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 7
-        </option>
-        <option value="Hall Ticket">
-            Hall Ticket
-        </option>
-        <option value="Caste Validity Certificate">
-            Caste Validity Certificate
-        </option>
-        <option value="DTE Allotment Letter">
-            DTE Allotment Letter
-        </option>
-        
-    </select>
-</td>
-            <td><input type="file" name="3"></td>
-           
-            
-            <td><input type="submit" name="3" size="4" class="btn btn-success"></input></td>
-        </tr>
+            </tbody>
+       </table>
+    </div>
+</form>
 
-         <tr>
-            <td>4</td>
-            <td><select class="dropdown" style="display:inline">
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 1
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 2
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 3
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 4
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 5
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 6
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 7
-        </option>
-        <option value="Hall Ticket">
-            Hall Ticket
-        </option>
-        <option value="Caste Validity Certificate">
-            Caste Validity Certificate
-        </option>
-        <option value="DTE Allotment Letter">
-            DTE Allotment Letter
-        </option>
+        <br>
+        <br>
+        <H3 align="center">UPLOADED DOCUMENTS</H3>
+        <br>
         
-    </select>
-</td>
-            <td><input type="file" name="4"></td>
-           
-            
-            <td><input type="submit" name="4" size="4" class="btn btn-success"></input></td>
-        </tr>
 
-        <tr>
-            <td>5</td>
-            <td><select class="dropdown" style="display:inline">
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 1
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 2
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 3
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 4
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 5
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 6
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 7
-        </option>
-        <option value="Hall Ticket">
-            Hall Ticket
-        </option>
-        <option value="Caste Validity Certificate">
-            Caste Validity Certificate
-        </option>
-        <option value="DTE Allotment Letter">
-            DTE Allotment Letter
-        </option>
+       <?php  $row=getdocuments($_SESSION['username']); 
         
-    </select>
-</td>
-            <td><input type="file" name="5"></td>
-           
             
-            <td><input type="submit" name="5" size="4" class="btn btn-success"></input></td>
-        </tr>
-
-        <tr>
-            <td>6</td>
-            <td><select class="dropdown" style="display:inline">
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 1
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 2
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 3
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 4
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 5
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 6
-        </option>
-        <option value="Marksheet-Sem 1">
-           Marksheet-Sem 7
-        </option>
-        <option value="Hall Ticket">
-            Hall Ticket
-        </option>
-        <option value="Caste Validity Certificate">
-            Caste Validity Certificate
-        </option>
-        <option value="DTE Allotment Letter">
-            DTE Allotment Letter
-        </option>
-        
-    </select>
-</td>
-            <td><input type="file" name="6"></td>
-           
-            
-            <td><input type="submit" name="6" size="4" class="btn btn-success"></input></td>
-        </tr>
-
+        ?>
+        <table class="table table-hover table-striped" align="center">
+                <thead align="center">
+                    <tr>
+                        <th scope="col">roll</th>
+                        <th scope="col">document</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($row as $data) { 
+                ?>
+                    <tr>
+                        <td><?=$data['roll']?></td>
+                        <td><?=$data['name']?></td>
+                    </tr>
+                    
+                <?php }
+                ?>
+                </tbody>
         </table>
 
+        <br>
+        <br>
 
-        <button class="btn btn-info btn-lg" style="margin-left:30%" >Save and Submit</button>
+        <button type="submit" name="1" size="4" class="btn btn-info btn-lg"  style="margin-left: 40%"><a href="student_final_form.php">Next</a></button>
+
+</div>
+    
+ 
+    
+    
+
+
+    
 
 <?php include '../templates/footer.html'; ?>

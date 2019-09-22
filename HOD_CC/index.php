@@ -1,7 +1,9 @@
 <?php include '../templates/header.php'; ?>
 <?php include 'backend/onlyhodcc.php'; ?>
-
-
+<?php include 'backend/getdata.php'; ?>
+<script src="js/form.js"></script>
+<script src="js/approval.js"></script>
+<script src="js/send.js"></script>
 <!-- Sidebar  -->
 <nav id="sidebar">
     <div class="sidebar-header">
@@ -11,24 +13,22 @@
 
     <ul class="list-unstyled components ">
         <li>
-            <a href="#">
+            <a href="index.php">
                 Pending Approval
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="approved.php">
                Approved
             </a>
         </li>
-        <li>
-            <a href="#">
-                View All
-            </a>
-        </li>
+        
     </ul>
 
 
 </nav>
+
+
 
 <!-- Page Content  -->
 <div id="content">
@@ -67,103 +67,81 @@
                 <tr>
                     <th scope="col">Roll Number</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Form</th>
                     <th scope="col">Documents</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Form</th>
                     <th scope="col">Actions</th>
+                    
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">17IT1020</th>
-                    <td>Makarand Madhavi</td>
-                    <td>
-
-                        <button class="btn btn-info">View Form</button>
-
-
-                    </td>
-                    <td>
-                        <div class="list-group">
-                            <button type="button" class="list-group-item list-group-item-action">DTE Allotment
-                                letter</button>
-                            <button type="button" class="list-group-item list-group-item-action">Marksheet sem
-                                1</button>
-                            <button type="button" class="list-group-item list-group-item-action">Marksheet sem
-                                2</button>
-                            <button type="button" class="list-group-item list-group-item-action">Hall Ticket</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="container">
-                            <button class="btn btn-success">Appprove</button>
-                        </div>
-                        <div class="container" style="margin-top: 5%">
-                            <button class="btn btn-danger">Send Back</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">17IT1020</th>
-                    <td>Makarand Madhavi</td>
-                    <td>
-
-                        <button class="btn btn-info">View Form</button>
-
-
-                    </td>
+    
+                <?php 
+                    $rows=getunapproved($_SESSION['username']) ;
+                    foreach($rows as $row){?>
+                    <th scope="row"><?=$row['roll_num']?></th>
+                    <td><?=$row['student_name']?></td>
+                  
                     <td>
                         <div class="list-group">
-                            <button type="button" class="list-group-item list-group-item-action">DTE Allotment
-                                letter</button>
-                            <button type="button" class="list-group-item list-group-item-action">Marksheet sem
-                                1</button>
-                            <button type="button" class="list-group-item list-group-item-action">Marksheet sem
-                                2</button>
-                            <button type="button" class="list-group-item list-group-item-action">Hall Ticket</button>
+                            <button type="button" class="list-group-item list-group-item-action"><?=$row['name']?>
+                                </button>
+                         
                         </div>
                     </td>
+                    
+                   
                     <td>
+
+                        <button class="btn btn-info"><a href="<?=$row['doc_url']?>">View </a></button>
+                    </td>
+                  
+                
+                    
+                    <?php
+                    if($row['roll_num']!=""){?>
+                    <form action="viewing.php" method="post">
+                    <td>
+                      <button  type="submit" class="btn btn-info "  id="<?=$row['roll_num']?>" name="form_view" >View</button>
+                    </td>
+                    <input type="hidden" value="<?=$row['roll_num']?>" name="input2"/>
+                    </form>
+                    <?php } 
+                    else{ ?>
+                        <td></td>
+                    <?php }
+                    ?>
+
+                  <?php
+                    if($row['roll_num']!=""){?>
+                    <td >
                         <div class="container">
-                            <button class="btn btn-success">Appprove</button>
+                            <button class="btn btn-success" name="<?=$_SESSION['username']?>" id="<?=$row['roll_num']?>" onclick="approving(this.id,this.name)">Approve</button>
+
                         </div>
                         <div class="container" style="margin-top: 5%">
-                            <button class="btn btn-danger">Send Back</button>
+                            <button class="btn btn-danger" id="<?=$_SESSION['username']?>" name="<?=$row['roll_num']?>" onclick="sendback(this.id,this.name)">Send Back</button>
                         </div>
                     </td>
+                    <?php } 
+                else{ ?>
+                    <td></td>
+                <?php }
+                ?>
+                 
                 </tr>
-                <tr>
-                    <th scope="row">17IT1020</th>
-                    <td>Makarand Madhavi</td>
-                    <td>
-
-                        <button class="btn btn-info">View Form</button>
-
-
-                    </td>
-                    <td>
-                        <div class="list-group">
-                            <button type="button" class="list-group-item list-group-item-action">DTE Allotment
-                                letter</button>
-                            <button type="button" class="list-group-item list-group-item-action">Marksheet sem
-                                1</button>
-                            <button type="button" class="list-group-item list-group-item-action">Marksheet sem
-                                2</button>
-                            <button type="button" class="list-group-item list-group-item-action">Hall Ticket</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="container">
-                            <button class="btn btn-success">Appprove</button>
-                        </div>
-                        <div class="container" style="margin-top: 5%">
-                            <button class="btn btn-danger">Send Back</button>
-                        </div>
-                    </td>
-                </tr>
+                 <?php }?>
+               
+                
             </tbody>
         </table>
-
     </div>
+            
 </div>
+
+
+
 
 <?php include '../templates/footer.html'; ?>

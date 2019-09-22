@@ -22,7 +22,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="student_final_form.php">
                 Review & Submit
             </a>
         </li>

@@ -18,7 +18,7 @@ function login() {
                 if (data == "STUDENT") {
                     window.location = 'student/';
                 } else if (data == "HOD" || data == "CC") {
-                    window.location = 'HOD_CC';
+                    window.location = 'HOD_CC/';
                 } else if (data == "SS") {
                     window.location = 'studentsection/';
                 } else {

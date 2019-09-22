@@ -1,9 +1,11 @@
 <?php include '../templates/header.php'; ?>
 <?php include 'backend/onlystudent.php'; ?>
 <?php include 'sidebar.php'; ?>
-<?php include 'backend/getdata.php'; ?>
-<script src="assets/jquery.js"></script>
-<script src="assets/bootstrap.min.js"></script>
+<?php include '../studentsection/backend/getdata.php'; 
+  
+?>
+<script src="../assets/jquery.js"></script>
+<script src="../assets/bootstrap.min.js"></script>
 
 <script src="js/student.js"></script>
 
@@ -42,7 +44,7 @@
         <h3>Application Form</h3>
         <div class="card">
             <?php
-        $student = getstudentdata($_SESSION['username']);
+        $student = getdata($_SESSION['username']);
         //print_r($student);
         ?>
             <h5 class="card-header">Name : <span style="font-weight:100"> <?=$student['name']?></span></h5>
@@ -51,8 +53,8 @@
 
 
                     <div class="col-sm-2">
-                        <img src="<?=$student['photo']?>" onerror="this.src='http://via.placeholder.com/150x200'"
-                            srcset="">
+                        <img src="<?='../images/'.$student['photo']?>" onerror="this.src='http://via.placeholder.com/150x200'"
+                            srcset="" width="150" height="200">
                     </div>
 
                     <div class="col-sm-10">
@@ -146,6 +148,7 @@
                     </label>
                     <div class="col-sm-5">
                         <select class="form-control" id="appstatus">
+                            <option selected value =""></option>
                             <option value="Aproved">
                                 Approved
                             </option>
@@ -161,7 +164,7 @@
                 </div>
             </div>
             <button type="submit" onclick="saveform(<?=$student['sem']?>)" class="btn btn-info btn-lg"
-                id="submitbutton">submit</button>
+                id="submitbutton" style="margin-left: 40%"><a href="upload.php">Submit</a></button>
 
         </div>
     </div>

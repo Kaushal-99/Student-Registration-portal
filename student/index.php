@@ -1,7 +1,7 @@
 <?php include '../templates/header.php'; ?>
 <?php include 'backend/onlystudent.php'; ?>
 <?php include 'sidebar.php'; ?>
-
+<?php include 'backend/getdata.php';?>
 
 <!-- Page Content  -->
 <div id="content">
@@ -32,26 +32,74 @@
             </div>
         </div>
     </nav>
-
+    <?php
+    $approved=getstudentapproval($_SESSION['username']);
+    $ac=getacademicdata($_SESSION['username']);
+    ?>
     <div class="container main-content">
         <h3>Application Status : Pending submission from student</h3>
         <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
+            <?php if ($ac) { ?>
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
                 Fill form
-            </div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
-                upload documents (pending)
-            </div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
-                Application submitted (pending)
-            </div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
-                Approval (pending)
-            </div>
+                </div>
+
+            <?php } 
+            else {?>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
+                Fill form
+                </div>
+
+            <?php } ?>
+
+          
+            <?php if ($approved['stud_section']!='') { ?>
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
+                Approval by student section
+                </div>
+
+            <?php } 
+            else {?>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
+                Approval by student section
+                </div>
+
+            <?php } ?>
+            
+            <?php if ($approved['CC']!='') { ?>
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
+                Approval by CC
+                </div>
+
+            <?php } 
+            else {?>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
+                Approval by CC
+                </div>
+
+            <?php } ?>
+
+            <?php if ($approved['hod']!='') { ?>
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
+                Approval by HOD
+                </div>
+
+            <?php } 
+            else {?>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" id="upload documents">
+                Approval by HOD
+                </div>
+
+            <?php } ?>
+            
         </div>
         <br>
         <br>

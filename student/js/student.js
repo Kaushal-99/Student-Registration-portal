@@ -13,6 +13,8 @@ function saveform(sem) {
     apply = $("#apply").val();
     appid = $("#appid").val();
     appstatus = $("#appstatus").val();
+   
+    
     //console.log(apply);
     //console.log(appid);
     //console.log(appstatus);
@@ -40,17 +42,18 @@ function saveform(sem) {
         month = $("#sem-"+i+"-mon").val();
         pointer = $("#sem-"+i+"-pointer").val();
         kt = $("#sem-"+i+"-kt").val();
-        insertresult(seat,month,pointer,kt); 
+        insertresult(i,seat,month,pointer,kt); 
     }
 }
 
-function insertresult(seat,month,pointer,kt) {
+function insertresult(i,seat,month,pointer,kt) {
 
     $.ajax({
         type: "POST",
         url: "backend/insertresult_ajax.php",
         data: {
             //data goes here
+            i,
             seat,
             month,
             pointer,
