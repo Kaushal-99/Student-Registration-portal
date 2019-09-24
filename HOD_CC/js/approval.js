@@ -14,7 +14,7 @@ function approving(roll,name) {
             },
             success: function (data) {
                 console.log(data);
-                if (data == "HOD" || data == "CC") {
+                if (data == "HOD") {
                     alert("Approved by hod!! ");
                 } 
                 if (data == "CC") {
