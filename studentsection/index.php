@@ -80,7 +80,7 @@
                     <th scope="col">View</th>
                     <th scope="col">Form</th>
                     <th scope="col">Actions</th>
-                    <th scope="col">Send</th>
+                    
                     
                 </tr>
             </thead>

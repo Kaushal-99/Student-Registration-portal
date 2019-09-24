@@ -15,10 +15,10 @@ function approving(roll,name) {
             success: function (data) {
                 console.log(data);
                 if (data == "HOD" || data == "CC") {
-                    alert("hod or cc!");
+                    alert("Approved by hod!! ");
                 } 
-                if (data == "SS") {
-                    alert("ss!");
+                if (data == "CC") {
+                    alert("Approved by CC!!");
                 } 
                 
             }
