@@ -25,8 +25,9 @@ include 'getdata.php';
                 $pdf->SetFont('Arial','B',18);
                 $pdf->Cell(0,30,'Student Copy',0,1,'C');
                 $file=$row['photo'];
+                if($file!=''){
                 $pdf->Image('../../images/'.$file,150,35,40);
-
+            	}
 
                 $pdf->SetFont('Arial','B',12);
                 $pdf->Cell(40,10,'Roll no :');
