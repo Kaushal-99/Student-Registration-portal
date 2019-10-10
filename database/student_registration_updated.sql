@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2019 at 06:25 PM
+-- Generation Time: Oct 10, 2019 at 06:57 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -43,6 +43,7 @@ CREATE TABLE `admission_type` (
 INSERT INTO `admission_type` (`roll`, `receipt_type`, `applysch`, `appid`, `appstatus`) VALUES
 ('17CS1031', 'Provisional', 'Yes', '8748jnsjdsjdhjshdj', 'Aproved'),
 ('17IT1012', 'Regular', 'No', '', ''),
+('17IT1013', 'Regular', 'No', '', ''),
 ('17IT1020', 'Regular', 'Yes', '21554564', 'Aproved'),
 ('sdfsd', 'sdsds', 'No', 'sdsds', 'sdsd');
 
@@ -67,6 +68,7 @@ CREATE TABLE `approval` (
 INSERT INTO `approval` (`roll`, `hod`, `CC`, `stud_section`, `final_status`) VALUES
 ('17CS1031', 'Leena', 'Sunita', 'ss', 'approved'),
 ('17IT1012', 'Ashish', 'Varsha', 'ss', 'approved'),
+('17IT1013', 'Ashish', 'Madhav', 'ss', 'approved'),
 ('17IT1020', 'Ashish', 'Varsha', 'ss', 'approved');
 
 -- --------------------------------------------------------
@@ -88,7 +90,8 @@ CREATE TABLE `cc` (
 
 INSERT INTO `cc` (`id`, `name`, `department`, `division`) VALUES
 (1, 'Varsha', 'IT', 'A'),
-(2, 'Sunita', 'CS', 'A');
+(2, 'Sunita', 'CS', 'A'),
+(3, 'Madhav', 'IT', 'B');
 
 -- --------------------------------------------------------
 
@@ -118,13 +121,11 @@ CREATE TABLE `documents_submitted` (
 --
 
 INSERT INTO `documents_submitted` (`roll`, `name`, `doc_url`) VALUES
-('17IT1012', 'Marksheet-Sem 1', '../uploadedfiles/17IT1012+7.jpg'),
-('17IT1012', 'Marksheet-Sem 2', '../uploadedfiles/17IT1012+image1.jpg'),
-('17IT1020', 'Marksheet-Sem 2', '../uploadedfiles/17IT1020+254110_mrok_drzewa_tory_kolejowe_mgla.jpg'),
-('17IT1020', 'Marksheet-Sem 1', '../uploadedfiles/17IT1020+7.jpg'),
-('17IT1020', 'Hall Ticket', '../uploadedfiles/17IT1020+bd75aeb10ee4c1d1767758aabd76853f.jpg'),
-('17IT1020', 'Caste Validity Certificate', '../uploadedfiles/17IT1020+belle-gold-dress-emma-watson-beauty-and-the-beast-1.jpg'),
-('17CS1031', 'Marksheet-Sem 1', '../uploadedfiles/17IT1031+7.jpg');
+('17CS1031', 'Marksheet-Sem 1', '../uploadedfiles/17CS1031+IMG-20191009-WA0002.jpg'),
+('17IT1012', 'Marksheet-Sem 1', '../uploadedfiles/17IT1012+IMG-20191009-WA0007.jpg'),
+('17IT1012', 'Marksheet-Sem 2', '../uploadedfiles/17IT1012+marksheet_1.jpg'),
+('17IT1013', 'Marksheet-Sem 1', '../uploadedfiles/17IT1013+IMG-20191009-WA0002.jpg'),
+('17IT1020', 'Marksheet-Sem 1', '../uploadedfiles/17IT1020+IMG-20191009-WA0003.jpg');
 
 -- --------------------------------------------------------
 
@@ -151,6 +152,8 @@ INSERT INTO `form` (`id`, `roll`, `sem`, `seat_no`, `month_year`, `pointer`, `kt
 ('17CS1031+djhsdjh', '17CS1031', '2', 'djhsdjh', '2019-09', '7.62', 0),
 ('17IT1012+1001', '17IT1012', '1', '1001', '2018-05', '8.70', 0),
 ('17IT1012+1002', '17IT1012', '2', '1002', '2019-05', '9.20', 0),
+('17IT1013+3001', '17IT1013', '1', '3001', '2019-05', '8.50', 0),
+('17IT1013+3002', '17IT1013', '2', '3002', '2019-10', '8.23', 0),
 ('17IT1020+2001', '17IT1020', '1', '2001', '2018-01', '9.00', 0),
 ('17IT1020+2002', '17IT1020', '2', '2002', '2018-11', '8.23', 0),
 ('17IT1020+2003', '17IT1020', '3', '2003', '2019-09', '8.43', 0),
@@ -194,9 +197,11 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`username`, `password`, `type`) VALUES
 ('17CS1031', '123', 'STUDENT'),
 ('17IT1012', '123', 'STUDENT'),
+('17IT1013', '123', 'STUDENT'),
 ('17IT1020', '123', 'STUDENT'),
 ('Ashish', '123', 'HOD'),
 ('Leena', '123', 'HOD'),
+('Madhav', '123', 'CC'),
 ('Rahul', '123', 'SS'),
 ('ss', '123', 'SS'),
 ('Sunita', '123', 'CC'),
@@ -229,6 +234,7 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`roll`, `name`, `sem`, `year`, `email`, `division`, `batch`, `department`, `caste`, `admission_type`, `photo`) VALUES
 ('17CS1031', 'Raj', 4, 'TE', 'makarandrox@gmail.com', 'A', 'A3', 'CS', 'OPEN', 'Regular', 'makarand.png'),
 ('17IT1012', 'Kaushal Chande', 5, 'TE', 'chandekaushal@gmail.com', 'A', 'A2', 'IT', 'OPEN', 'Regular', 'kaushal.jpg'),
+('17IT1013', 'Piyush Jha', 5, 'TE', 'piyushjha65@gmail.com', 'B', 'B2', 'IT', 'OPEN', 'Regular', ''),
 ('17IT1020', 'Makarand Madhavi', 5, 'TE', 'makarandmadhavi99@gmail.com', 'A', 'A2', 'IT', 'OBC', 'Regular', 'makarand.png');
 
 -- --------------------------------------------------------
@@ -321,7 +327,7 @@ ALTER TABLE `student_section`
 -- AUTO_INCREMENT for table `cc`
 --
 ALTER TABLE `cc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `documents`

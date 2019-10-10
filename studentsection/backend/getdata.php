@@ -95,6 +95,7 @@ function getunapproved($user){
             documents_submitted.name,documents_submitted.doc_url,approval.stud_section FROM documents_submitted,student,approval WHERE
             documents_submitted.roll=student.roll
             AND documents_submitted.roll=approval.roll
+        
            
             ";
         $result = $conn->query($sql);  
