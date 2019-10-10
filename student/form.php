@@ -93,7 +93,7 @@
                         <th scope="row"><?=$i?></th>
                         <td><input type="text" class="form-control" id="sem-<?=$i?>-seat"></td>
                         <td><input type="month" class="form-control" id="sem-<?=$i?>-mon"></td>
-                        <td><input type="number" min="0" max="10" class="form-control" id="sem-<?=$i?>-pointer"></td>
+                        <td><input type="number" step="0.01" min="0" max="10" class="form-control" id="sem-<?=$i?>-pointer"></td>
                         <td><input type="number" min="0" max="6" name="no" size="4" class="form-control"
                                 id="sem-<?=$i?>-kt"></td>
                     </tr>

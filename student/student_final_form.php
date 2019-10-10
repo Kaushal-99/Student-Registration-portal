@@ -147,6 +147,6 @@
         </div>
         <br>
 
-        <button type="submit" name="1" size="4" id="<?=$roll?>" class="btn btn-info btn-lg" style="margin-left: 40%" onclick="finalalert(this.id)">Submit</button>
+        <button type="submit" name="1" size="4" id="<?=$roll?>" class="btn btn-info btn-lg" style="margin-left: 40%" onclick="finalalert(this.id)"><a href="index.php">Submit</a></button>
 
 </div>

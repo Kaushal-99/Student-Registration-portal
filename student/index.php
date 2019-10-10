@@ -35,11 +35,13 @@
     <?php
     $approved=getstudentapproval($_SESSION['username']);
     $ac=getacademicdata($_SESSION['username']);
+    $udoc=getupload($_SESSION['username']);
+
     ?>
     <div class="container main-content">
         <h3>Application Status : Pending submission from student</h3>
         <div class="progress">
-            <?php if ($ac) { ?>
+            <?php if ($ac && $udoc) { ?>
                 <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
                 aria-valuemin="0" aria-valuemax="100" id="upload documents">
                 Fill form

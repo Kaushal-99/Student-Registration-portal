@@ -7,7 +7,7 @@
 <!-- Sidebar  -->
 <nav id="sidebar">
     <div class="sidebar-header">
-        <h3>Welcome, HOD/CC!</h3>
+        <h3>Welcome, <?=$_SESSION['username']?>!</h3>
         <strong>SS</strong>
     </div>
 

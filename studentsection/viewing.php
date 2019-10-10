@@ -52,8 +52,8 @@
 
 
                     <div class="col-sm-2">
-                        <img src="<?=$row['photo']?>" onerror="this.src='http://via.placeholder.com/150x200'"
-                            srcset="">
+                        <img src="<?='../images/'.$row['photo']?>" onerror="this.src='http://via.placeholder.com/150x200'"
+                            srcset="" width="150" height="200">
                     </div>
 
                     <div class="col-sm-10">
